@@ -6,17 +6,17 @@ import string
 
 freqDict = {}
 for word in string.lowercase:   #create a void freq dict, key=a to z
-    freqDict[word] = 0L
+    freqDict[word] = 0
 
-fh=open('./a.txt','r')           #read_only
-str=string.lower(fh.read())
+fh = open('./a.txt','r')           #read_only
+str = string.lower(fh.read())
+fh.close()
+
+total = 0
 for l in str:
     if re.match("[a-z]",l):       #if l is a letter, count it
         freqDict[l] += 1
-
-total = 0L
-for value in freqDict.values():
-    total += value
+        total += 1
 
 list = sorted(freqDict.iteritems(),key=lambda t:t[1],reverse=True) #sort out
 for key,value in list:
